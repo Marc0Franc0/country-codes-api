@@ -2,9 +2,9 @@ package com.api.countriescodes.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import com.api.countriescodes.model.Country;
+import com.api.countriescodes.model.Code;
 
 @Repository
-public interface CountryRepository extends CrudRepository<Country,Long>{
+public interface CodeRepository extends CrudRepository<Code,Long> {
+
 }
- 
