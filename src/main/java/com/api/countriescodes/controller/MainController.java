@@ -27,9 +27,9 @@ public class MainController {
     @Autowired
     CountryService countryS;
     
-    @GetMapping("/saludar")
+    @GetMapping("/status")
     public String saludar() {
-        return "Hola";
+        return "Funcionando";
     }
 
      @GetMapping("/allcountry")
