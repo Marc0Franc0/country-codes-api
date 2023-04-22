@@ -1,5 +1,7 @@
 package com.api.countriescodes.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.api.countriescodes.model.Code;
@@ -14,12 +16,12 @@ public class CountryServiceImpl implements CountryService {
     @Autowired
     CodeService codeS;
 
-  /*   @Override
-    public Collection<Country> getAll() {
+    @Override
+    public List<Country> getAll() {
         // TODO Auto-generated method stub
-        return  countryRepository.findAll();
+        return  (List<Country>) countryRepository.findAll();
     }
- */
+ 
     @Override
     public Country getCountry(Long id) {
         // TODO Auto-generated method stub

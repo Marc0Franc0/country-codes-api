@@ -1,13 +1,16 @@
 package com.api.countriescodes.service;
 
 
+
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import com.api.countriescodes.model.Country;
 
 @Service
 public interface CountryService {
-/* 
-    public Collection<Country> getAll(); */
+
+    public List<Country> getAll(); 
 
     public Country getCountry(Long id);
 

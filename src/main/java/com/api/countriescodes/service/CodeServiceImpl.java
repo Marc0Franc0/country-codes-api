@@ -1,5 +1,7 @@
 package com.api.countriescodes.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.api.countriescodes.model.Code;
@@ -10,12 +12,12 @@ public class CodeServiceImpl implements CodeService {
     @Autowired
     CodeRepository codeRepository;
 
-    /* @Override
+     @Override
     public List<Code> getAll() {
         // TODO Auto-generated method stub
          return (List<Code>) codeRepository.findAll();
     }
- */
+
     @Override
     public Code getCode(Long id) {
         // TODO Auto-generated method stub

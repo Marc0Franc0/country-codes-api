@@ -1,6 +1,9 @@
 package com.api.countriescodes.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +17,7 @@ import com.api.countriescodes.service.CodeService;
 import com.api.countriescodes.service.CountryService;
 
 @RestController
+@CrossOrigin("http://localhost:4200/")
 @RequestMapping("/api")
 public class MainController {
 
@@ -28,16 +32,15 @@ public class MainController {
         return "Hola";
     }
 
-   /*  @GetMapping("/allcountry")
-    public ResponseEntity<?> getCountries(){
-        Collection<Country> lista = countryS.getAll();
-        return  ResponseEntity.status(HttpStatus.OK).body(lista);
-    } */
+     @GetMapping("/allcountry")
+    public List<Country> getCountries(){
+        return   countryS.getAll();
+    } 
 
-    /* @GetMapping("/allcode")
+     @GetMapping("/allcode")
     public List<Code> getCodes(){
         return codeS.getAll();
-    } */
+    } 
     //Get-----------------------------------------------------------------------
     @GetMapping("/getcountry/{id}")
     public Country getCountry(@PathVariable Long id){
