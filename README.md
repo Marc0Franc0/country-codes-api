@@ -1,6 +1,8 @@
 # api-countries-codes
-Must have list:
+
+Requeriments:
 1. Docker installed
+
 Things todo list:
 1. Clone this repository: git clone https://github.com/Marc0Franc0/api-countries-codes.git
 2. Navigate to the folder: cd api-countries-codes
