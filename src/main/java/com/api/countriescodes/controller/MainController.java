@@ -17,7 +17,7 @@ import com.api.countriescodes.service.CodeService;
 import com.api.countriescodes.service.CountryService;
 
 @RestController
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin(origins ={"http://localhost:4200/","https://clima-appweb.netlify.app/"})
 @RequestMapping("/api")
 public class MainController {
 

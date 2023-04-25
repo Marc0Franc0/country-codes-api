@@ -31,7 +31,7 @@ public class WebConfiguration {
         registry
         .addMapping("/**")
         .allowedMethods("*")
-        .allowedOrigins("http://localhost:4200/");
+        .allowedOrigins("http://localhost:4200/","https://clima-appweb.netlify.app/");
 
 
      /*   registry.addMapping("/api/v1/auth/**")
