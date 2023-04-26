@@ -25,10 +25,9 @@ public class CodeServiceImpl implements CodeService {
     }
 
     @Override
-    public Code createCode(String code) {
+    public Code createCode(Code code) {
         Code create = new Code();
-
-        create.setCode(code);
+        create.setCode(code.getCode());
         return codeRepository.save(create);
 
     }
@@ -37,5 +36,19 @@ public class CodeServiceImpl implements CodeService {
     public void deleteCode(Long id) {
 
         codeRepository.deleteById(id);
+    }
+
+    @Override
+    public String modifyCode(Long id, Code code) {
+
+      if (!codeRepository.findById(id).isEmpty()) {
+        Code codigo = new Code();
+        codigo.setId(id);
+        codigo.setCode(code.getCode());
+        codeRepository.save(codigo);
+        return "Modificado";
+    }else{
+        return "Pais no existente";
+    }
     }
 }

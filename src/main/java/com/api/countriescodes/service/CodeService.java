@@ -12,8 +12,9 @@ public interface CodeService {
  
     public Code getCode(Long id);
 
-    public Code createCode(String code);
+    public Code createCode(Code code);
 
     public void deleteCode(Long id);
 
+    public String modifyCode(Long id, Code code);
 }

@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
- 
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,6 +25,7 @@ public class Country {
     @Column(name = "name")
     String name;
 
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "code_id")
     private Code code;

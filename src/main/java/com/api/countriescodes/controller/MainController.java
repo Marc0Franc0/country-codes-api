@@ -1,15 +1,15 @@
 package com.api.countriescodes.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.api.countriescodes.model.Code;
 import com.api.countriescodes.model.Country;
@@ -32,6 +32,7 @@ public class MainController {
         return "Funcionando";
     }
 
+    //Get-----------------------------------------------------------------------
      @GetMapping("/allcountry")
     public List<Country> getCountries(){
         return   countryS.getAll();
@@ -41,7 +42,7 @@ public class MainController {
     public List<Code> getCodes(){
         return codeS.getAll();
     } 
-    //Get-----------------------------------------------------------------------
+    
     @GetMapping("/getcountry/{id}")
     public Country getCountry(@PathVariable Long id){
         return countryS.getCountry(id);
@@ -53,13 +54,8 @@ public class MainController {
     }
     //Create---------------------------------------------------------------------
     @PostMapping("/newcountry")
-    public Country createCountry(@RequestParam String name, @RequestParam Long id){
-        return countryS.createCountry(name,id);
-    }
-
-    @PostMapping("/newcode")
-    public Code createCode(@RequestParam String code){
-        return codeS.createCode(code);
+    public Country createCountry(@RequestBody Country country){
+        return countryS.createCountry(country);
     }
     //Delete-------------------------------------------------------------------
     @DeleteMapping("/deletecountry/{id}")
@@ -67,10 +63,13 @@ public class MainController {
          countryS.deleteCountry(id);
          return "eliminado";
     }
-    //No es necesario ya que al eliminar el pais este se eliminara también
-    /* @DeleteMapping("/deletecode/{id}")
-    public String deleteCode(@PathVariable Long id){
-         codeS.deleteCode(id);
-         return "eliminado";
-    } */
+    //Modify-------------------------------------------------------------------
+    @PutMapping("/modifycode/{id}")
+    public String modifyCode(@RequestBody Code code, @PathVariable Long id){
+        return codeS.modifyCode(id,code);
+    }
+    @PutMapping("/modifycountry/{id}")
+    public String modifyCountry(@RequestBody Country country, @PathVariable Long id){
+        return countryS.modifyCountry(id, country);
+    }
 }

@@ -1,10 +1,8 @@
 package com.api.countriescodes.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.api.countriescodes.model.Code;
 import com.api.countriescodes.model.Country;
 import com.api.countriescodes.repository.CountryRepository;
 
@@ -19,9 +17,9 @@ public class CountryServiceImpl implements CountryService {
     @Override
     public List<Country> getAll() {
         // TODO Auto-generated method stub
-        return  (List<Country>) countryRepository.findAll();
+        return (List<Country>) countryRepository.findAll();
     }
- 
+
     @Override
     public Country getCountry(Long id) {
         // TODO Auto-generated method stub
@@ -29,26 +27,30 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Country createCountry(String name, Long code_id) {
-
-        Code code = new Code();
-
-        // Code assigned
-        code = codeS.getCode(code_id);
-
-        // Object for saved in database
-        Country create = new Country();
-        // Set properties country
-        create.setName(name);
-        create.setCode(code);
-
-        return countryRepository.save(create);
+    public Country createCountry(Country country) {
+        return countryRepository.save(country);
     }
 
     @Override
     public void deleteCountry(Long id) {
 
         countryRepository.deleteById(id);
+    }
+
+    @Override
+    public String modifyCountry(Long id, Country country) {
+
+        if (!countryRepository.findById(id).isEmpty()) {
+            
+            Country pais = new Country();
+            pais.setId(id);
+            pais.setName(country.getName());
+            countryRepository.save(pais);
+            return "Modificado";
+        }else{
+            return "Pais no existente";
+        }
+
     }
 
 }
