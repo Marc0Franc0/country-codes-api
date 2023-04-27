@@ -1,6 +1,8 @@
 package com.api.countriescodes.controller;
 
 import java.util.List;
+import java.util.stream.Stream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -65,11 +67,11 @@ public class MainController {
     }
     //Modify-------------------------------------------------------------------
     @PutMapping("/modifycode/{id}")
-    public String modifyCode(@RequestBody Code code, @PathVariable Long id){
+    public Stream<Object>  modifyCode(@RequestBody Code code, @PathVariable Long id){
         return codeS.modifyCode(id,code);
     }
     @PutMapping("/modifycountry/{id}")
-    public String modifyCountry(@RequestBody Country country, @PathVariable Long id){
+    public Stream<Object> modifyCountry(@RequestBody Country country, @PathVariable Long id){
         return countryS.modifyCountry(id, country);
     }
 }

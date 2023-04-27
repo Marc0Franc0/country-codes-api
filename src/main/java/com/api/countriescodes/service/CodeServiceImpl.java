@@ -1,6 +1,7 @@
 package com.api.countriescodes.service;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +13,10 @@ public class CodeServiceImpl implements CodeService {
     @Autowired
     CodeRepository codeRepository;
 
-     @Override
+    @Override
     public List<Code> getAll() {
         // TODO Auto-generated method stub
-         return (List<Code>) codeRepository.findAll();
+        return (List<Code>) codeRepository.findAll();
     }
 
     @Override
@@ -25,30 +26,20 @@ public class CodeServiceImpl implements CodeService {
     }
 
     @Override
-    public Code createCode(Code code) {
-        Code create = new Code();
-        create.setCode(code.getCode());
-        return codeRepository.save(create);
-
-    }
-
-    @Override
     public void deleteCode(Long id) {
 
         codeRepository.deleteById(id);
     }
 
     @Override
-    public String modifyCode(Long id, Code code) {
+    public Stream<Object> modifyCode(Long id, Code request) {
 
-      if (!codeRepository.findById(id).isEmpty()) {
-        Code codigo = new Code();
-        codigo.setId(id);
-        codigo.setCode(code.getCode());
-        codeRepository.save(codigo);
-        return "Modificado";
-    }else{
-        return "Pais no existente";
-    }
+        return codeRepository
+                .findById(id)
+                .stream()
+                .map( codigo-> {
+                    codigo = Code.builder().code(request.getCode()).build();
+                    return codeRepository.save(codigo);
+                });
     }
 }

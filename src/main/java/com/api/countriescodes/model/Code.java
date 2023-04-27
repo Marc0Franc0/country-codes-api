@@ -10,14 +10,20 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
-@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
-@Setter
+@Entity
 @Table(name = "codes")
 public class Code {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

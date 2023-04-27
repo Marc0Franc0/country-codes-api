@@ -1,6 +1,7 @@
 package com.api.countriescodes.service;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 import com.api.countriescodes.model.Code;
@@ -12,9 +13,7 @@ public interface CodeService {
  
     public Code getCode(Long id);
 
-    public Code createCode(Code code);
-
     public void deleteCode(Long id);
 
-    public String modifyCode(Long id, Code code);
+    public Stream<Object>  modifyCode(Long id, Code request);
 }

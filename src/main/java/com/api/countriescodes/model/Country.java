@@ -10,11 +10,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
-@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
-@Setter
+@Entity
 @Table(name = "countries")
 public class Country {
     @Id

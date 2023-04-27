@@ -6,5 +6,6 @@ import com.api.countriescodes.model.Country;
 
 @Repository
 public interface CountryRepository extends JpaRepository<Country,Long>{
+    boolean existsByName(String name);
 }
  
