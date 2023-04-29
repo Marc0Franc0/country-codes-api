@@ -15,5 +15,5 @@ public interface CodeService {
 
     public void deleteCode(Long id);
 
-    public Stream<Object>  modifyCode(Long id, Code request);
+    public Stream<Object>  updateCode(Long id, Code request);
 }

@@ -2,6 +2,7 @@ package com.api.countriescodes.service;
 
 import java.util.List;
 import java.util.stream.Stream;
+
 import org.springframework.stereotype.Service;
 import com.api.countriescodes.model.Country;
 
@@ -16,6 +17,6 @@ public interface CountryService {
 
     public void deleteCountry(Long id);
 
-    public Stream<Object> modifyCountry(Long id, Country request);
+    public Stream<Object> updateCountry(Long id, Country request);
 
 }

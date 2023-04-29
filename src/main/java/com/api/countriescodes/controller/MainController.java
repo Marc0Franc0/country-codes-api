@@ -67,11 +67,11 @@ public class MainController {
     }
     //Modify-------------------------------------------------------------------
     @PutMapping("/modifycode/{id}")
-    public Stream<Object>  modifyCode(@RequestBody Code code, @PathVariable Long id){
-        return codeS.modifyCode(id,code);
+    public Stream<Object>  updateCodeById(@RequestBody Code code, @PathVariable Long id){
+        return codeS.updateCode(id,code);
     }
     @PutMapping("/modifycountry/{id}")
-    public Stream<Object> modifyCountry(@RequestBody Country country, @PathVariable Long id){
-        return countryS.modifyCountry(id, country);
+    public Stream<Object> updateCountryById(@RequestBody Country country, @PathVariable Long id){
+         return countryS.updateCountry(id, country);
     }
 }

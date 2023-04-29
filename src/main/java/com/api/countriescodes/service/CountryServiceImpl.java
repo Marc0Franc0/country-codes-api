@@ -5,7 +5,6 @@ import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.api.countriescodes.model.Country;
-import com.api.countriescodes.repository.CodeRepository;
 import com.api.countriescodes.repository.CountryRepository;
 
 @Service
@@ -15,9 +14,6 @@ public class CountryServiceImpl implements CountryService {
 
     @Autowired
     CodeService codeS;
-
-    @Autowired
-    CodeRepository codeRepository;
 
     @Override
     public List<Country> getAll() {
@@ -32,13 +28,14 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public Stream<Object> modifyCountry(Long id, Country request) {
+    public Stream<Object> updateCountry(Long id, Country request) {
+
         return countryRepository
-                .findAll()
+                .findById(id)
                 .stream()
-                .filter(country -> country.getId().equals(id))
                 .map(country -> {
-                    Country.builder().name(request.getName()).code(request.getCode()).build();
+                    country.setName(request.getName());
+                    country.setCode(request.getCode());
                     return countryRepository.save(country);
                 });
     }

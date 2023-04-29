@@ -2,7 +2,6 @@ package com.api.countriescodes.service;
 
 import java.util.List;
 import java.util.stream.Stream;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.api.countriescodes.model.Code;
@@ -32,13 +31,13 @@ public class CodeServiceImpl implements CodeService {
     }
 
     @Override
-    public Stream<Object> modifyCode(Long id, Code request) {
+    public Stream<Object> updateCode(Long id, Code request) {
 
         return codeRepository
                 .findById(id)
                 .stream()
-                .map( codigo-> {
-                    codigo = Code.builder().code(request.getCode()).build();
+                .map(codigo -> {
+                    codigo = Code.builder().id(id).code(request.getCode()).build();
                     return codeRepository.save(codigo);
                 });
     }
