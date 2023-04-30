@@ -5,7 +5,7 @@
 
 ## Requirements for running with maven
 
-Navigate to: [http://localhost:9090/](http://localhost:9090/) :
+Navigate to: [http://localhost:9090/](http://localhost:9090/)
 
 For building and running the application you need:
 
