@@ -1,4 +1,4 @@
-# api-countries-codes
+# country-codes-api
 
 1.Clone this repository: git clone https://github.com/Marc0Franc0/api-countries-codes.git
 2.Navigate to the folder: cd api-countries-codes
