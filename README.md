@@ -1,11 +1,11 @@
 # country-codes-api
 
-1.Clone this repository: git clone https://github.com/Marc0Franc0/api-countries-codes.git
-2.Navigate to the folder: cd api-countries-codes
+1.Clone this repository: git clone https://github.com/Marc0Franc0/country-codes-api.git
+2.Navigate to the folder: cd country-codes-api
 
 ## Requirements for running with maven
 
-Navigate to: [http://localhost:9090/](http://localhost:9090/)
+Navigate to: [http://localhost:8080/](http://localhost:8080/)
 
 For building and running the application you need:
 
